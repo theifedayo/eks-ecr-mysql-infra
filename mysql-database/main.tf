@@ -41,7 +41,7 @@ resource "aws_security_group" "rds_sg" {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = [aws_subnet.private_subnet.cidr_block]
+    cidr_blocks = [aws_subnet.private_subnet.cidr_block] # You can update with allowed CIDR block
   }
 }
 

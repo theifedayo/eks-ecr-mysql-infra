@@ -68,7 +68,7 @@ Upon successful deployment, you'll receive outputs for each module:
 
 - Security Group Granularity: The design includes separate security groups for EKS, ECR, and RDS instances to control network access with finer granularity.
 
-- Credentials Management: AWS credentials can be managed using environment variables, IAM roles, or other secure methods. This assumes the use of hardcoded access and secret keys for simplicity.
+- Credentials Management: The AWS credentials are managed using environment variables for access and secret keys.
 
 - Customization: The code provided offers a basic setup. For a production environment, I would consider customizing instance types, storage sizes, backup strategies, and other parameters based on my application requirements.
 
