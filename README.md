@@ -28,17 +28,25 @@ This documentation outlines the setup of a Kubernetes cluster in AWS, an Elastic
 - AWS account credentials or IAM role with required permissions.
 - Terraform installed on your local machine.
 
-### 2. Clone Repository
+### 2. Set AWS Environment Variables
+
+- Export your AWS credentials as environment variables:
+  ```bash
+  export AWS_ACCESS_KEY_ID=your_access_key
+  export AWS_SECRET_ACCESS_KEY=your_secret_key
+  ```
+
+### 3. Clone Repository
 
 ```bash
 git clone https://github.com/theifedayo/eks-ecr-mysql-infra
 cd eks-ecr-mysql-infra
 ```
 
-### 3. Configure Variables
+### 4. Configure Variables
 - In each module directory (my-k8s-cluster, ecr-repository, mysql-database), update the provider block with your AWS credentials or use other authentication methods.
 
-### 4. Create Infrastructure
+### 5. Create Infrastructure
 Navigate to each module directory and run:
 
 ```bash
@@ -46,13 +54,27 @@ terraform init
 terraform apply
 ```
 
-### 5. Review and Confirm
+### 6. Review and Confirm
 Review the proposed changes, type yes to confirm.
 
-### 6. Outputs
+### 7. Outputs
 Upon successful deployment, you'll receive outputs for each module:
 - EKS Cluster kubeconfig (my-k8s-cluster)
 - ECR Repository URL (ecr-repository)
 - RDS Endpoint (mysql-database)
 
-## Conclusion
+## Assumptions, Design Choices, and Considerations:
+- VPC Configuration: The setup assumes the use of a single VPC for simplicity. In a production scenario, I would consider VPC peering or other network configurations for more advanced networking requirements.
+
+- Security Group Granularity: The design includes separate security groups for EKS, ECR, and RDS instances to control network access with finer granularity.
+
+- Credentials Management: AWS credentials can be managed using environment variables, IAM roles, or other secure methods. This assumes the use of hardcoded access and secret keys for simplicity.
+
+- Customization: The code provided offers a basic setup. For a production environment, I would consider customizing instance types, storage sizes, backup strategies, and other parameters based on my application requirements.
+
+- High Availability: For high availability, I may need to consider multi-AZ configurations, automatic scaling, and redundancy.
+
+- Security and IAM: This setup does not cover advanced security considerations, IAM roles, or user/group permissions.
+
+- Networking and DNS: The setup does not cover domain configuration, DNS resolution, or other advanced networking components.
+
