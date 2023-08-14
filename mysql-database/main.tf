@@ -65,6 +65,6 @@ resource "aws_db_instance" "my_db_instance" {
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
 }
 
-output "rds_endpoint" {
-  value = aws_db_instance.my_db_instance.endpoint
-}
+# output "rds_endpoint" {
+#   value = aws_db_instance.my_db_instance.endpoint
+# }

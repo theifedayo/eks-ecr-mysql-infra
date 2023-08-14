@@ -4,18 +4,18 @@ This documentation outlines the setup of a Kubernetes cluster in AWS, an Elastic
 
 ## Infrastructure Components
 
-### 1. Kubernetes Cluster (EKS)
+### - Kubernetes Cluster (EKS)
 
 - Creates an Amazon EKS cluster in a Virtual Private Cloud (VPC).
 - Sets up private subnets for worker nodes.
 - Defines security groups for communication.
 - Utilizes the "terraform-aws-modules/eks/aws" module for EKS provisioning.
 
-### 2. Elastic Container Registry (ECR)
+### - Elastic Container Registry (ECR)
 
 - Establishes an ECR repository to store Docker images.
 
-### 3. MySQL Database
+### - MySQL Database
 
 - Sets up an RDS MySQL instance.
 - Creates a security group for RDS communication.
@@ -27,13 +27,12 @@ This documentation outlines the setup of a Kubernetes cluster in AWS, an Elastic
 
 - AWS account credentials or IAM role with required permissions.
 - Terraform installed on your local machine.
-- Knowledge of your desired region and availability zones.
 
 ### 2. Clone Repository
 
 ```bash
-git clone https"//github.com/theifedayo/
-cd 
+git clone https://github.com/theifedayo/eks-ecr-mysql-infra
+cd eks-ecr-mysql-infra
 ```
 
 ### 3. Configure Variables
@@ -49,8 +48,11 @@ terraform apply
 
 ### 5. Review and Confirm
 Review the proposed changes, type yes to confirm.
+
 ### 6. Outputs
 Upon successful deployment, you'll receive outputs for each module:
 - EKS Cluster kubeconfig (my-k8s-cluster)
 - ECR Repository URL (ecr-repository)
 - RDS Endpoint (mysql-database)
+
+## Conclusion
